@@ -8,18 +8,18 @@ However, it would be great to update the issue in Jira when the alert has been a
 ## Basic Idea
 For sending the acknowledgement information back to Jira we would need to match the Jira ID with the ID of SIGNL4. This is how it works with a simple PHP script:
  
-Jira :arrow_right PHP Script:
+Jira -> PHP Script<br/>
 When a Jira issue is created you trigger a Weebhook to be sent to the URL where your PHP scrips is running. You can configure this easily in the Webhook section in the Jira settings.
 The PHP script will store the Jira issue ID in order to match it later.
  
-PHP -> SIGNL4:
+PHP -> SIGNL4<br/>
 Upon receiving the Jira issue information the PHP script will send an HTTP request to SIGNL4 in order to trigger the alert. As a response the PHP script will get the event ID of the SIGNL4 event. This is stored along the Jira issue ID.
  
-SIGNL4 -> PHP:
+SIGNL4 -> PHP<br/>
 In the SIGNL4 portal you configure the outbound Webhook that will be called when a user acknowledges an alert in SIGNL4. You can do so under Developer -> Webhooks.
 The PHP script will receive the acknowledgement request where the SIGNL4 event ID is contained. It will then search for the corresponding Jira issue ID and then sends back the update request to Jira.
  
-PHP -> Jira:
+PHP -> Jira<br/>
 In Jira the issue is then updates accordingly.
 
 ## Implementation
