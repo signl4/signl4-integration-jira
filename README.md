@@ -8,7 +8,7 @@ However, it would be great to update the issue in Jira when the alert has been a
 ## Basic Idea
 For sending the acknowledgement information back to Jira we would need to match the Jira ID with the ID of SIGNL4. This is how it works with a simple PHP script:
  
-Jira --> PHP Script:
+Jira :arrow_right PHP Script:
 When a Jira issue is created you trigger a Weebhook to be sent to the URL where your PHP scrips is running. You can configure this easily in the Webhook section in the Jira settings.
 The PHP script will store the Jira issue ID in order to match it later.
  
